@@ -165,6 +165,8 @@ export default function Contact() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   whileHover={{ x: 6 }}
                   className="glass rounded-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4 hover:border-neon-cyan/40 transition-all group"
+                  target={c.href.startsWith('mailto') || c.href.startsWith('http') ? '_blank' : undefined}
+                  rel="noreferrer"
                 >
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"

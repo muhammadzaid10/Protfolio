@@ -52,14 +52,20 @@ app.use(notFound)
 app.use(errorHandler)
 
 // ---------- Start ----------
-const startServer = async () => {
-  // Try to connect to MongoDB but don't crash if it fails — chat & contact have graceful fallbacks
-  await connectDB()
-  app.listen(PORT, () => {
-    console.log(`\n🚀 Portfolio API running on http://localhost:${PORT}`)
-    console.log(`   Environment: ${process.env.NODE_ENV || 'development'}`)
-    console.log(`   Client URL:  ${process.env.CLIENT_URL || 'http://localhost:5173'}\n`)
-  })
+// Only start the server locally if not running on Vercel
+if (process.env.NODE_ENV !== 'production' || process.env.VITE_API_URL) {
+  const startServer = async () => {
+    await connectDB()
+    app.listen(PORT, () => {
+      console.log(`\n🚀 Portfolio API running on http://localhost:${PORT}`)
+      console.log(`   Environment: ${process.env.NODE_ENV || 'development'}`)
+      console.log(`   Client URL:  ${process.env.CLIENT_URL || 'http://localhost:5173'}\n`)
+    })
+  }
+  startServer()
+} else {
+  // Try to connect to DB for Vercel
+  connectDB()
 }
 
-startServer()
+export default app

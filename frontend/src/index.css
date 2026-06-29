@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- BASE ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  background: #05060d;
+  color: #ececf5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+img,
+svg,
+canvas,
+video {
+  max-width: 100%;
+}
+
+a,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.light {
+  background: #f5f5fa;
+  color: #0a0a1a;
+}
+
+body.light .text-ink,
+body.light .text-ink\/70,
+body.light .hover\:text-ink:hover {
+  color: #0a0a1a !important;
+}
+
+body.light .text-ink-muted {
+  color: #4b4b63 !important;
+}
+
+body.light .text-ink-dim,
+body.light .placeholder-ink-dim::placeholder {
+  color: #6b6b82 !important;
+}
+
+body.light .glass-strong {
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light .bg-bg-deep {
+  background-color: #eef1f8 !important;
+}
+
+body.light .bg-white\/5 {
+  background-color: rgba(10, 10, 26, 0.04) !important;
+}
+
+body.light .bg-white\/10 {
+  background-color: rgba(10, 10, 26, 0.08) !important;
+}
+
+body.light .border-white\/5,
+body.light .border-white\/10,
+body.light .border-white\/15 {
+  border-color: rgba(10, 10, 26, 0.12) !important;
+}
+
+body.light input,
+body.light textarea {
+  color: #0a0a1a;
+}
+
+@media (max-width: 900px) {
+  body {
+    cursor: auto;
+  }
+
+  .blob-glow {
+    width: 220px !important;
+    height: 220px !important;
+    filter: blur(80px);
+    opacity: 0.28;
+  }
+
+  .bg-grid {
+    background-size: 38px 38px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 86%);
+  }
+}
+
+::selection {
+  background: #00e5ff;
+  color: #05060d;
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05060d;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00e5ff, #b829ff);
+  border-radius: 8px;
+}
+
+/* ---------- UTILITY CLASSES ---------- */
+.glass {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.light .glass {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #00e5ff 0%, #b829ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+.text-gradient-2 {
+  background: linear-gradient(135deg, #ff2e63 0%, #b829ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px #ececf5;
+  -webkit-text-fill-color: transparent;
+}
+
+body.light .text-outline {
+  -webkit-text-stroke: 1.5px #0a0a1a;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ---------- GRID BACKGROUND ---------- */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+body.light .bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* ---------- GLOWING BUTTON ---------- */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #00e5ff, #b829ff, #ff2e63, #00e5ff);
+  background-size: 300% 300%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradientShift 4s ease infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover::before {
+  opacity: 1;
+}
+
+/* ---------- TILT CARD ---------- */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out;
+}
+
+/* ---------- ROTATING TITLE CARET ---------- */
+.title-caret {
+  border-right: 2px solid #00e5ff;
+  padding-right: 4px;
+  animation: blinkCaret 0.8s steps(1) infinite;
+}
+
+@keyframes blinkCaret {
+  50% { border-color: transparent; }
+}
+
+/* ---------- BLOB GLOW ---------- */
+.blob-glow {
+  filter: blur(120px);
+  opacity: 0.45;
+  border-radius: 50%;
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  animation: blobFloat 20s ease-in-out infinite;
+}
+
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(80px, -60px) scale(1.1); }
+  66% { transform: translate(-60px, 80px) scale(0.9); }
+}
+
+/* ---------- TIMELINE DOT GLOW ---------- */
+.timeline-dot {
+  box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.2), 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
+/* ---------- HIDE SCROLLBAR ON SPECIFIC ELS ---------- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ---------- REDUCE MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+}

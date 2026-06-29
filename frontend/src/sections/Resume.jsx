@@ -210,7 +210,7 @@ export default function Resume() {
               </div>
               <div>
                 <div className="font-display font-extrabold text-2xl text-gradient">
-                  2025
+                  2026
                 </div>
                 <div className="font-mono text-[10px] text-ink-muted tracking-wider mt-1">
                   UPDATED

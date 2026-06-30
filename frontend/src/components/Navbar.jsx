@@ -94,7 +94,7 @@ export default function Navbar({ theme, setTheme }) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="lg:hidden absolute top-full left-0 right-0 mt-3 glass rounded-2xl p-2.5 flex flex-col"
+              className="lg:hidden absolute top-full left-0 right-0 mt-3 mobile-dropdown rounded-2xl p-2.5 flex flex-col z-50 overflow-hidden"
             >
               {navLinks.map((link) => (
                 <a

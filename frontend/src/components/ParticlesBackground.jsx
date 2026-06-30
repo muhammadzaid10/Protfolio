@@ -26,6 +26,22 @@ export default function ParticlesBackground() {
     setSize()
 
     const colors = ['#00e5ff', '#b829ff', '#ff2e63']
+    // Pre-render glowing particles for high performance
+    const glows = {}
+    colors.forEach(color => {
+      const oc = document.createElement('canvas')
+      oc.width = 40
+      oc.height = 40
+      const octx = oc.getContext('2d')
+      octx.beginPath()
+      octx.fillStyle = color
+      octx.shadowColor = color
+      octx.shadowBlur = 8
+      octx.arc(20, 20, 2, 0, Math.PI * 2)
+      octx.fill()
+      glows[color] = oc
+    })
+
     const count = Math.min(80, Math.floor((width * height) / 18000))
 
     for (let i = 0; i < count; i++) {
@@ -71,13 +87,10 @@ export default function ParticlesBackground() {
         if (p.y < 0) p.y = height
         if (p.y > height) p.y = 0
 
-        // Draw particle with glow
-        ctx.beginPath()
-        ctx.fillStyle = p.color
-        ctx.shadowColor = p.color
-        ctx.shadowBlur = 8
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx.fill()
+        // Draw pre-rendered glowing particle (ultra-fast)
+        const scale = p.r / 2
+        const drawSize = 40 * scale
+        ctx.drawImage(glows[p.color], p.x - drawSize/2, p.y - drawSize/2, drawSize, drawSize)
 
         // Draw connecting lines
         for (let j = i + 1; j < particles.length; j++) {

@@ -38,7 +38,7 @@ function respond(msg = '') {
     return `${KNOWLEDGE.name} is a passionate ${KNOWLEDGE.titles[0]} based in ${KNOWLEDGE.location}. He's currently learning Agentic AI and pursuing BSCS at Federal Urdu University, after completing the MERN Stack bootcamp at SMIT.`
 
   if (/(skill|tech|stack|technolog|languages|frameworks)/.test(m))
-    return `Zaid's strongest skills are React, Next.js, Node.js, Express, MongoDB, Tailwind CSS, REST APIs, and JWT auth. He's also actively learning Agentic AI, n8n, prompt engineering, and AI API integrations.`
+    return `Zaid's strongest skills are React, Node.js, Express, MongoDB, Tailwind CSS, REST APIs, and JWT auth. He's also actively learning Agentic AI, n8n, prompt engineering, and AI API integrations.`
 
   if (/(project|portfolio|work|built|build|showcase)/.test(m))
     return `Featured projects: ${KNOWLEDGE.projects.join(' • ')}`

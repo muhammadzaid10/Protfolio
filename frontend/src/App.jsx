@@ -14,7 +14,6 @@ import Education from './sections/Education'
 import Skills from './sections/Skills'
 import Projects from './sections/Projects'
 import Stats from './sections/Stats'
-import AIAssistant from './sections/AIAssistant'
 import Resume from './sections/Resume'
 import Contact from './sections/Contact'
 
@@ -72,7 +71,6 @@ function App() {
             <Skills />
             <Projects />
             <Stats />
-            <AIAssistant />
             <Resume />
             <Contact />
           </main>

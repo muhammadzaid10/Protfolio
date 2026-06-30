@@ -33,6 +33,7 @@ export const navLinks = [
   { name: 'Education', href: '#education' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Assistant', href: '#assistant' },
   { name: 'Contact', href: '#contact' },
 ]
 

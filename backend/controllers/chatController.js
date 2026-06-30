@@ -21,6 +21,7 @@ const KNOWLEDGE = {
     'AI Clinic Management SaaS — multi-role auth, AI diagnosis, appointments, prescriptions, analytics.',
     'MERN E-Commerce Store — JWT auth, admin dashboard, cart & checkout, fully responsive.',
     'Supabase Authentication System — login/register, OAuth, password reset.',
+    'PitchCraft — AI-powered pitch generation, Supabase authentication, cloud database, modern UI.',
     'AI Portfolio Assistant — AI chat, portfolio navigation, smart responses.',
   ],
   availability: 'Open to Internship & Freelance Opportunities',
@@ -60,6 +61,15 @@ function respond(msg = '') {
 
   if (/(ai|artificial intelligence|agentic|chatbot|llm|gpt)/.test(m))
     return `Zaid is actively exploring Agentic AI — building autonomous agents with tools like n8n, prompt engineering, and AI APIs. He's especially interested in combining AI with full-stack apps.`
+
+  if (/(pitchcraft|pitch craft)/.test(m))
+    return `PitchCraft is one of Zaid's latest projects! It's an AI-powered web app that generates professional business pitches. It uses React, Tailwind, Supabase for auth/database, and the Grok API for AI generation.`
+
+  if (/(clinic|healthcare|doctor|patient|diagnosis)/.test(m))
+    return `The AI Clinic Management SaaS is a full-fledged healthcare platform. It features multi-role auth, an AI diagnosis assistant, appointment scheduling, and prescription management.`
+
+  if (/(ecommerce|e-commerce|store|shop|cart)/.test(m))
+    return `Zaid built a production-ready MERN E-Commerce Store with a complete admin dashboard, payment-ready cart, responsive UI, and JWT authentication.`
 
   if (/(thank|thanks)/.test(m))
     return `You're welcome! Feel free to ask anything else, or scroll down to the contact form to reach out directly.`

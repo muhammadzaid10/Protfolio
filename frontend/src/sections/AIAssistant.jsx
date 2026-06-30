@@ -13,7 +13,7 @@ function localResponder(msg) {
   if (m.includes('who') || m.includes('about') || m.includes('zaid'))
     return `${personal.name} is a passionate MERN Stack Developer and Agentic AI learner based in Pakistan. He completed MERN training from SMIT and is pursuing BSCS at Federal Urdu University.`
   if (m.includes('skill') || m.includes('tech') || m.includes('stack'))
-    return `My strongest skills are React, Next.js, Node.js, Express, MongoDB, Tailwind CSS, JWT auth, and REST APIs. I'm also actively learning Agentic AI, n8n, and prompt engineering.`
+    return `My strongest skills are React, Node.js, Express, MongoDB, Tailwind CSS, JWT auth, and REST APIs. I'm also actively learning Agentic AI, n8n, and prompt engineering.`
   if (m.includes('project') || m.includes('work') || m.includes('build'))
     return `I've built an AI Clinic Management SaaS, a MERN E-Commerce Store, a Supabase Auth System, and an AI Portfolio Assistant. Scroll up to the Projects section for live demos and code.`
   if (m.includes('experience') || m.includes('background'))

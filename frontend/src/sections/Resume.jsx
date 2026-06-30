@@ -102,7 +102,7 @@ export default function Resume() {
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-1.5">
-                    {['React', 'Node', 'MongoDB', 'AI', 'Next', 'Tailwind'].map(
+                    {['React', 'Node', 'MongoDB', 'AI', 'Tailwind', 'Express'].map(
                       (s, i) => (
                         <motion.span
                           key={s}
